@@ -9,10 +9,12 @@ set(SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/source")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++0x -Wall -Wextra -Werror -Wpedantic")
 
 include_directories(${SOURCE_DIR})
+include_directories(${SOURCE_DIR}/list_graph/)
 include_directories(${SOURCE_DIR}/matrix_graph/)
 include_directories(${SOURCE_DIR}/arc_graph/)
 
 set(LIB_GRAPH
+    ${SOURCE_DIR}/list_graph/list_graph.cpp
     ${SOURCE_DIR}/matrix_graph/matrix_graph.cpp
     ${SOURCE_DIR}/arc_graph/arc_graph.cpp
 )

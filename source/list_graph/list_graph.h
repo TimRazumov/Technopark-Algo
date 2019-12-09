@@ -1,20 +1,20 @@
-#ifndef MATRIX_GRAPH_H
-#define MATRIX_GRAPH_H
+#ifndef LIST_GRAPH_H
+#define LIST_GRAPH_H
 
 #include "graph.h"
 
-class matrix_graph : public graph {
+class list_graph : public graph {    
  public:
-    matrix_graph(const graph& g); 
-    explicit matrix_graph(size_t num_vertices);
-    virtual ~matrix_graph() = default;
+    list_graph(const graph& g); 
+    explicit list_graph(size_t num_vertices);
+    virtual ~list_graph() = default;
     void add_edge(size_t from, size_t to) override;
     size_t vertices_count() const override;
     std::vector<size_t> get_next_vertices(size_t vertex) const override;
     std::vector<size_t> get_prev_vertices(size_t vertex) const override;
  private:
     const size_t num_vertices;
-    std::vector<std::vector<bool>> matrix;
+    std::vector<std::vector<size_t>> list;
 };
 
-#endif  // MATRIX_GRAPH_H
+#endif  // LIST_GRAPH_H
