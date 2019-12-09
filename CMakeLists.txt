@@ -10,9 +10,11 @@ set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -std=c++0x -Wall -Wextra -Werror -Wpedanti
 
 include_directories(${SOURCE_DIR})
 include_directories(${SOURCE_DIR}/matrix_graph/)
+include_directories(${SOURCE_DIR}/arc_graph/)
 
 set(LIB_GRAPH
     ${SOURCE_DIR}/matrix_graph/matrix_graph.cpp
+    ${SOURCE_DIR}/arc_graph/arc_graph.cpp
 )
 
 add_library(_graph STATIC ${LIB_GRAPH})
