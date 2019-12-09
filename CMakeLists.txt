@@ -17,5 +17,10 @@ set(LIB_GRAPH
 
 add_library(_graph STATIC ${LIB_GRAPH})
 
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
 add_executable(test.out ${SOURCE_DIR}/test.cpp)
 target_link_libraries(test.out _graph)
+target_link_libraries(test.out ${GTEST_LIBRARIES})
+target_link_libraries(test.out pthread)

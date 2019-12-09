@@ -5,7 +5,7 @@
 
 class graph {
  public:
-    virtual ~graph() {};
+    virtual ~graph() = default;
     virtual void add_edge(size_t from, size_t to) = 0; // Добавление ребра от from к to
     virtual size_t vertices_count() const = 0;
     virtual std::vector<size_t> get_next_vertices(size_t vertex) const = 0;
