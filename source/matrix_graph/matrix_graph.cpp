@@ -2,6 +2,7 @@
 
 matrix_graph::matrix_graph(const graph& g)
     : num_vertices{g.vertices_count()}
+    , matrix(num_vertices, std::vector<bool>(num_vertices, false))
 {
     for (size_t idx = 0; idx < num_vertices; ++idx) {
         std::vector<size_t> next_vertices = g.get_next_vertices(idx);

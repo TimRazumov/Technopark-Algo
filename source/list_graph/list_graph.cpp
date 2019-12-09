@@ -2,6 +2,7 @@
 
 list_graph::list_graph(const graph& g)
     : num_vertices{g.vertices_count()}
+    , list(num_vertices)
 {
     for (size_t idx = 0; idx < num_vertices; ++idx) {
         std::vector<size_t> next_vertices = g.get_next_vertices(idx);
