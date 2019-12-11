@@ -18,7 +18,7 @@ list_graph::list_graph(size_t num_vertices)
 {}
 
 void list_graph::add_edge(size_t from, size_t to) {
-    list[from].push_back(to);
+    list[from].emplace_back(to);
 }
 
 size_t list_graph::vertices_count() const {
@@ -35,7 +35,7 @@ std::vector<size_t> list_graph::get_prev_vertices(size_t vertex) const {
         const std::vector<size_t>& next_vert = list[idx];
         for (const size_t& vert : next_vert) {
             if (vert == vertex) {
-                prev_vert.push_back(idx);
+                prev_vert.emplace_back(idx);
             }
         }
     }

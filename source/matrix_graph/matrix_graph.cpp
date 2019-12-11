@@ -30,7 +30,7 @@ std::vector<size_t> matrix_graph::get_next_vertices(size_t vertex) const {
     const std::vector<bool>& line = matrix[vertex];
     for (size_t idx = 0; idx < num_vertices; ++idx) {
         if (line[idx]) {
-            next_vertices.push_back(idx);
+            next_vertices.emplace_back(idx);
         }
     }
     return next_vertices;
@@ -40,7 +40,7 @@ std::vector<size_t> matrix_graph::get_prev_vertices(size_t vertex) const {
     std::vector<size_t> prev_vertices;
     for (size_t idx = 0; idx < num_vertices; ++idx) {
         if (matrix[idx][vertex]) {
-            prev_vertices.push_back(idx);
+            prev_vertices.emplace_back(idx);
         }
     }
     return prev_vertices;

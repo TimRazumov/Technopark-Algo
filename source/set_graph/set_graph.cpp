@@ -18,7 +18,7 @@ set_graph::set_graph(size_t num_vertices)
 {}
 
 void set_graph::add_edge(size_t from, size_t to) {
-    set[from].insert(to);
+    set[from].emplace(to);
 }
 
 size_t set_graph::vertices_count() const {
@@ -35,7 +35,7 @@ std::vector<size_t> set_graph::get_prev_vertices(size_t vertex) const {
         const std::set<size_t>& next_vert = set[idx];
         for (const size_t& vert : next_vert) {
             if (vert == vertex) {
-                prev_vertices.push_back(idx);
+                prev_vertices.emplace_back(idx);
             }
         }
     }

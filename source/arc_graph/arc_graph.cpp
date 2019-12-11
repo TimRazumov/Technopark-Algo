@@ -32,7 +32,7 @@ std::vector<size_t> arc_graph::get_next_vertices(size_t vertex) const {
     std::vector<size_t> next_vert;
     for (const edge& e : edges) {
         if (e.from == vertex) {
-            next_vert.push_back(e.to);
+            next_vert.emplace_back(e.to);
         }
     }
     return next_vert;
@@ -42,7 +42,7 @@ std::vector<size_t> arc_graph::get_prev_vertices(size_t vertex) const {
     std::vector<size_t> prev_vert;
     for (const edge& e : edges) {
         if (e.to == vertex) {
-            prev_vert.push_back(e.from);
+            prev_vert.emplace_back(e.from);
         }
     }
     return prev_vert;
