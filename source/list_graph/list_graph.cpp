@@ -35,7 +35,7 @@ std::vector<size_t> list_graph::get_prev_vertices(size_t vertex) const {
         const std::vector<size_t>& next_vert = list[idx];
         for (const size_t& vert : next_vert) {
             if (vert == vertex) {
-                prev_vert.emplace_back(idx);
+                prev_vert.push_back(idx);
             }
         }
     }

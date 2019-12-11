@@ -35,7 +35,7 @@ std::vector<size_t> set_graph::get_prev_vertices(size_t vertex) const {
         const std::set<size_t>& next_vert = set[idx];
         for (const size_t& vert : next_vert) {
             if (vert == vertex) {
-                prev_vertices.emplace_back(idx);
+                prev_vertices.push_back(idx);
             }
         }
     }
