@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <bits/stdc++.h>
 
 class list_graph {    
  public:
@@ -20,8 +21,8 @@ list_graph::list_graph(size_t num_vertices)
 {}
 
 void list_graph::add_edge(size_t from, size_t to) {
-    list[from].push_back(to);
-    list[to].push_back(from);
+    list[from].emplace_back(to);
+    list[to].emplace_back(from);
 }
 
 size_t list_graph::vertices_count() const {
@@ -35,8 +36,8 @@ std::vector<size_t> list_graph::get_next_vertices(size_t vertex) const {
 /******************************************************************************/
 
 size_t num_short_path(const list_graph& graph, size_t from, size_t to) {
-    std::vector<size_t> dist(graph.vertices_count(), 0);
-    dist[from] = 1; // иначе два раза ляжет в очередь
+    std::vector<int> dist(graph.vertices_count(), INT_MAX);
+    dist[from] = 0;
     std::vector<size_t> path_count(graph.vertices_count(), 0);
     path_count[from] = 1;
     
@@ -47,7 +48,7 @@ size_t num_short_path(const list_graph& graph, size_t from, size_t to) {
         size_t curr = q.front(); q.pop();
         std::vector<size_t> next_vert = graph.get_next_vertices(curr);
         for (size_t next : next_vert) {
-            if (!dist[next]) {
+            if (dist[next] == INT_MAX) {
                 dist[next] = dist[curr] + 1;
                 path_count[next] = path_count[curr];
                 q.push(next);
